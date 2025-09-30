@@ -1,7 +1,7 @@
 export default function Header({ toggleSidebar }) {
   return (
-    <header className="bg-indigo-600 text-white p-4 flex justify-between items-center shadow-md">
-      <h1 className="text-2xl font-bold tracking-wide">Mi App Pro</h1>
+    <header className="bg-white-200 text-green-600 p-4 flex justify-between items-center shadow-md">
+      <h1 className="text-2xl font-bold tracking-wide">Kinder Leizza</h1>
 
       {/* Navegación desktop */}
       <nav className="space-x-6 hidden md:flex">
@@ -13,7 +13,7 @@ export default function Header({ toggleSidebar }) {
       {/* Botón hamburguesa móvil */}
       <button
         onClick={toggleSidebar}
-        className="md:hidden p-2 rounded hover:bg-indigo-500 transition"
+        className="md:hidden p-2 rounded hover:bg-white transition"
       >
         ☰
       </button>
