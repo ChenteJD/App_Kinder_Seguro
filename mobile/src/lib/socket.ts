@@ -1,7 +1,6 @@
 import { io, Socket } from 'socket.io-client';
-import { Platform } from 'react-native';
 
-const SOCKET_URL = Platform.OS === 'android' ? 'http://10.0.2.2:3001' : 'http://localhost:3001';
+const SOCKET_URL = process.env.EXPO_PUBLIC_SOCKET_URL || 'http://192.168.11.24:3001';
 
 class SocketService {
   public socket: Socket | null = null;
@@ -30,7 +29,6 @@ class SocketService {
     }
   }
 
-  // Helper method to bind events components can use
   on(event: string, callback: (...args: any[]) => void) {
     this.socket?.on(event, callback);
   }

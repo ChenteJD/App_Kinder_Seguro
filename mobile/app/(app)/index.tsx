@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, RefreshControl, ActivityIndicator } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, RefreshControl, ActivityIndicator, StyleSheet } from 'react-native';
 import { useAuthStore } from '../../src/lib/store';
 import { api } from '../../src/lib/api';
 
@@ -31,46 +31,43 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <View className="flex-1 bg-kinder-bg">
+    <View style={styles.container}>
       <ScrollView 
-        className="flex-1 p-6"
+        style={styles.scroll}
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
       >
-        <View className="bg-white rounded-3xl p-6 shadow-sm mb-6 border border-gray-100 flex-row justify-between items-center">
+        <View style={styles.headerCard}>
           <View>
-            <Text className="text-gray-500 font-medium text-lg">Hola,</Text>
-            <Text className="text-2xl font-bold text-gray-800">{user?.nombre}</Text>
-            <View className="bg-kinder-girasoles self-start px-3 py-1 rounded-full mt-2">
-              <Text className="text-white text-xs font-bold uppercase">{user?.rol}</Text>
+            <Text style={styles.headerGreeting}>Hola,</Text>
+            <Text style={styles.headerName}>{user?.nombre}</Text>
+            <View style={styles.roleBadge}>
+              <Text style={styles.roleText}>{user?.rol}</Text>
             </View>
           </View>
-          <TouchableOpacity onPress={logout} className="bg-gray-100 px-4 py-3 rounded-2xl">
-            <Text className="text-gray-500 font-bold">Salir</Text>
+          <TouchableOpacity onPress={logout} style={styles.logoutBtn}>
+            <Text style={styles.logoutText}>Salir</Text>
           </TouchableOpacity>
         </View>
 
-        <Text className="text-xl font-bold text-gray-700 mb-4">
+        <Text style={styles.sectionTitle}>
           {user?.rol === 'tutor' ? 'Tus hijos registrados' : 'Alumnos a tu cargo'}
         </Text>
 
         {loading ? (
-          <ActivityIndicator size="large" color="#FF6B9D" className="mt-8" />
+          <ActivityIndicator size="large" color="#FF6B9D" style={{marginTop: 32}} />
         ) : data.length === 0 ? (
-          <View className="items-center mt-10">
-            <Text className="text-gray-400 text-lg">No hay alumnos asignados aún.</Text>
+          <View style={{alignItems: 'center', marginTop: 40}}>
+            <Text style={{color: '#9CA3AF', fontSize: 18}}>No hay alumnos asignados aún.</Text>
           </View>
         ) : (
           data.map((alumno: any) => (
-            <TouchableOpacity 
-              key={alumno.id} 
-              className="bg-white rounded-2xl p-4 shadow-sm mb-4 border border-gray-100 flex-row items-center border-l-4 border-l-kinder-petalos"
-            >
-              <View className="w-14 h-14 bg-gray-100 rounded-full mr-4 justify-center items-center border border-gray-200">
-                <Text className="text-2xl">🧒</Text>
+            <TouchableOpacity key={alumno.id} style={styles.itemCard}>
+              <View style={styles.itemAvatar}>
+                <Text style={{fontSize: 24}}>🧒</Text>
               </View>
-              <View className="flex-1">
-                <Text className="font-bold text-lg text-gray-800">{alumno.nombre} {alumno.apellido}</Text>
-                <Text className="text-gray-500 font-medium">{alumno.grupo_nombre} - {alumno.grupo_nivel}</Text>
+              <View style={{flex: 1}}>
+                <Text style={styles.itemName}>{alumno.nombre} {alumno.apellido}</Text>
+                <Text style={styles.itemGroup}>{alumno.grupo_nombre} - {alumno.grupo_nivel}</Text>
               </View>
             </TouchableOpacity>
           ))
@@ -79,3 +76,20 @@ export default function Dashboard() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: '#F9FAFB' },
+  scroll: { flex: 1, padding: 24 },
+  headerCard: { backgroundColor: 'white', borderRadius: 24, padding: 24, marginBottom: 24, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', elevation: 2, shadowColor: '#000', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.05, shadowRadius: 4, borderColor: '#F3F4F6', borderWidth: 1 },
+  headerGreeting: { color: '#6B7280', fontSize: 16, fontWeight: '500' },
+  headerName: { fontSize: 24, fontWeight: 'bold', color: '#1F2937' },
+  roleBadge: { backgroundColor: '#FFD93D', alignSelf: 'flex-start', paddingHorizontal: 12, paddingVertical: 4, borderRadius: 12, marginTop: 8 },
+  roleText: { color: 'white', fontSize: 12, fontWeight: 'bold', textTransform: 'uppercase' },
+  logoutBtn: { backgroundColor: '#F3F4F6', paddingHorizontal: 16, paddingVertical: 12, borderRadius: 16 },
+  logoutText: { color: '#6B7280', fontWeight: 'bold' },
+  sectionTitle: { fontSize: 20, fontWeight: 'bold', color: '#374151', marginBottom: 16 },
+  itemCard: { backgroundColor: 'white', borderRadius: 16, padding: 16, marginBottom: 16, flexDirection: 'row', alignItems: 'center', borderLeftWidth: 4, borderLeftColor: '#FF6B9D', elevation: 2, shadowColor: '#000', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.05, shadowRadius: 3 },
+  itemAvatar: { width: 56, height: 56, backgroundColor: '#F3F4F6', borderRadius: 28, marginRight: 16, justifyContent: 'center', alignItems: 'center', borderWidth: 1, borderColor: '#E5E7EB' },
+  itemName: { fontWeight: 'bold', fontSize: 18, color: '#1F2937' },
+  itemGroup: { color: '#6B7280', fontWeight: '500', marginTop: 4 }
+});

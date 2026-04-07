@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "mobile",
-    "slug": "mobile",
+    "slug": "vinculo-preescolar",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -29,6 +29,7 @@
     "plugins": [
       "expo-router"
     ],
-    "scheme": "vinculopreescolar"
+    "scheme": "vinculopreescolar",
+    "owner": "chentestudiojd"
   }
 }

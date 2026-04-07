@@ -1,4 +1,4 @@
-﻿const bcrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { v4: uuidv4 } = require("uuid");
 const { query, run, get } = require("../config/database");
@@ -13,7 +13,7 @@ const generarToken = (u) =>
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const usuario = get("SELECT * FROM usuarios WHERE email = ? AND activo = 1", [email]);
+    const usuario = get("SELECT * FROM usuarios WHERE (email = ? OR nombre = ?) AND activo = 1", [email, email]);
     if (!usuario || !(await bcrypt.compare(password, usuario.password_hash)))
       return res.status(401).json({ error: "Credenciales incorrectas" });
     const token = generarToken(usuario);

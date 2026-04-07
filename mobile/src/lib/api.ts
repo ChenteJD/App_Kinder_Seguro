@@ -1,10 +1,8 @@
 import axios from 'axios';
 import { useAuthStore } from './store';
-import { Platform } from 'react-native';
 
-// Use localhost for iOS simulator, 10.0.2.2 for Android emulator, or explicit local IP for physical devices
-// In this case, we'll try to infer standard local IP for development
-const BASE_URL = Platform.OS === 'android' ? 'http://10.0.2.2:3001/api' : 'http://localhost:3001/api';
+// Usa la variable de entorno para acceder dinámicamente según la red
+const BASE_URL = process.env.EXPO_PUBLIC_API_URL || 'http://192.168.11.24:3001/api';
 
 export const api = axios.create({
   baseURL: BASE_URL,
@@ -28,7 +26,6 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      // Auto-logout if token is expired/invalid
       useAuthStore.getState().logout();
     }
     return Promise.reject(error);
