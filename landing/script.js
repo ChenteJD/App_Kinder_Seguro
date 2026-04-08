@@ -121,4 +121,17 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s`;
         observer.observe(el);
     });
+
+    // Lógica dinámica para la "Tarjeta Recomendada"
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const badgeHTML = '<div class="download-badge">⭐ Recomendado</div>';
+    
+    // Si está en celular, recomienda Android. Si está en PC, recomienda Windows.
+    const targetCardId = isMobile ? 'card-android' : 'card-windows';
+    const targetCard = document.getElementById(targetCardId);
+    
+    if (targetCard) {
+        targetCard.classList.add('featured');
+        targetCard.insertAdjacentHTML('afterbegin', badgeHTML);
+    }
 });
