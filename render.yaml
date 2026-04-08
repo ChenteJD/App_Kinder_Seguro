@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: app-kinder-seguro
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node src/app.js
+    envVars:
+      - key: PORT
+        value: 3001
+      - key: JWT_SECRET
+        value: vinculo_preescolar_secret_key_2024_muy_segura
+      - key: JWT_EXPIRES_IN
+        value: 24h
+      - key: DB_PATH
+        value: /tmp/database.sqlite
+      - key: NODE_ENV
+        value: production
+      - key: CLIENT_URL
+        value: "*"
+      - key: SUPERADMIN_EMAIL
+        value: chentejardcruzz@gmail.com
+      - key: SUPERADMIN_PASSWORD
+        value: coder225589
+      - key: SUPERADMIN_NOMBRE
+        value: Vicente (Dev)

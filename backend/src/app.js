@@ -1,4 +1,4 @@
-﻿require("dotenv").config();
+require("dotenv").config();
 const express = require("express");
 const http = require("http");
 const { Server } = require("socket.io");
@@ -18,7 +18,8 @@ const saludRoutes = require("./routes/salud");
 const incidentesRoutes = require("./routes/incidentes");
 const nutricionRoutes = require("./routes/nutricion");
 const diarioRoutes = require("./routes/diario");
-
+const perfilRoutes = require("./routes/perfil");
+const jerarquiaRoutes = require("./routes/jerarquia");
 const app = express();
 const server = http.createServer(app);
 
@@ -46,6 +47,8 @@ app.use("/api/salud", saludRoutes);
 app.use("/api/incidentes", incidentesRoutes);
 app.use("/api/nutricion", nutricionRoutes);
 app.use("/api/diario", diarioRoutes);
+app.use("/api/perfil", perfilRoutes);
+app.use("/api/jerarquia", jerarquiaRoutes);
 
 app.get("/health", (req, res) => res.json({ status: "ok", timestamp: new Date().toISOString(), uptime: process.uptime() }));
 app.use((req, res) => res.status(404).json({ error: "Ruta no encontrada" }));

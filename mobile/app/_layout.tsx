@@ -10,7 +10,7 @@ export default function RootLayout() {
 
   useEffect(() => {
     // Evitar navegación si los segmentos aún no se inicializan correctamente
-    if (!segments || segments.length === 0) return;
+    if (!segments?.length) return;
 
     const inAuthGroup = segments[0] === '(app)';
 

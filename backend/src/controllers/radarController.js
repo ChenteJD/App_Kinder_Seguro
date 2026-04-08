@@ -1,16 +1,18 @@
-﻿const { v4: uuidv4 } = require("uuid");
+const { v4: uuidv4 } = require("uuid");
 const { query, run, get } = require("../config/database");
 const COLORES = { ok: "#4CAF50", triste: "#2196F3", enojado: "#F44336", ansioso: "#FF9800", enfermo: "#9C27B0" };
 
 const enviarReporte = (req, res) => {
   try {
     const { alumno_id, emoji, estado, nota, categoria } = req.body;
+    const notaSafe = nota || null;
+    const categoriaSafe = categoria || null;
     const fecha = new Date().toISOString().split("T")[0];
     const existe = get("SELECT id FROM reportes_diarios WHERE alumno_id = ? AND fecha = ?", [alumno_id, fecha]);
     if (existe) {
-      run("UPDATE reportes_diarios SET emoji=?, estado=?, nota=?, categoria=? WHERE alumno_id=? AND fecha=?", [emoji, estado, nota, categoria, alumno_id, fecha]);
+      run("UPDATE reportes_diarios SET emoji=?, estado=?, nota=?, categoria=? WHERE alumno_id=? AND fecha=?", [emoji, estado, notaSafe, categoriaSafe, alumno_id, fecha]);
     } else {
-      run("INSERT INTO reportes_diarios (id, alumno_id, tutor_id, emoji, estado, nota, categoria, fecha) VALUES (?,?,?,?,?,?,?,?)", [uuidv4(), alumno_id, req.user.userId, emoji, estado, nota, categoria, fecha]);
+      run("INSERT INTO reportes_diarios (id, alumno_id, tutor_id, emoji, estado, nota, categoria, fecha) VALUES (?,?,?,?,?,?,?,?)", [uuidv4(), alumno_id, req.user.userId, emoji, estado, notaSafe, categoriaSafe, fecha]);
     }
     const reporte = get("SELECT * FROM reportes_diarios WHERE alumno_id = ? AND fecha = ?", [alumno_id, fecha]);
     const io = req.app.get("io");
