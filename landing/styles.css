@@ -33,7 +33,8 @@ html {
 
 body {
   font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--bg);
+  background: linear-gradient(135deg, #F9FAFB 0%, #E8F4EC 50%, #F5F1FA 100%);
+  background-attachment: fixed;
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
@@ -43,6 +44,15 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
+}
+
+/* === GLASSMORPHISM CARDS === */
+.feature-card, .download-card, .form-section, .faq-item, .support-alt {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px 0 rgba(168, 213, 186, 0.2);
 }
 
 /* ===== NAVBAR ===== */
