@@ -1,13 +1,31 @@
 {
-  "name": "frontend",
+  "name": "kinder-seguro",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Backend API para App Kinder Seguro v1.0.0 - Kinder Leizza",
+  "main": "electron-main.cjs",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "electron:start": "electron .",
+    "electron:build": "npm run build && electron-builder --win"
+  },
+  "build": {
+    "appId": "com.kinder.seguro",
+    "productName": "Kinder Seguro v1.0.0",
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
   },
   "dependencies": {
     "axios": "^1.14.0",
@@ -22,6 +40,8 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
+    "electron": "^41.2.0",
+    "electron-builder": "^26.8.1",
     "eslint": "^9.39.4",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",

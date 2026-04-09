@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
+  base: './',
   plugins: [
     react(),
     VitePWA({
@@ -11,7 +12,7 @@ export default defineConfig({
       manifest: {
         name: 'Vínculo Preescolar',
         short_name: 'Vínculo',
-        description: 'App de gestión escolar para preescolares',
+        description: 'App de gestión escolar inteligente',
         theme_color: '#A8D5BA',
         background_color: '#F9FAFB',
         display: 'standalone',

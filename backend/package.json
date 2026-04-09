@@ -1,7 +1,7 @@
 {
-  "name": "vinculo-preescolar-backend",
+  "name": "kinder-seguro-backend",
   "version": "1.0.0",
-  "description": "Backend API para App Vínculo Preescolar - Kinder Leizza",
+  "description": "API para Kinder Seguro v1.0.0",
   "type": "commonjs",
   "main": "src/app.js",
   "scripts": {
