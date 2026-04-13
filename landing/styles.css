@@ -38,8 +38,8 @@ body {
   background-color: #F8FAFC;
   background-image: url('scribbles.png');
   background-repeat: repeat;
-  background-size: 500px;
-  background-attachment: fixed;
+  background-size: 480px auto;
+  background-attachment: local;
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
