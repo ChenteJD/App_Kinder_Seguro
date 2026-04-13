@@ -31,7 +31,7 @@ export default function Layout({ children }) {
       </button>
 
       {/* Sidebar */}
-      <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
+      <aside className={`sidebar glass ${sidebarOpen ? 'open' : ''}`}>
         <div className="sidebar-logo">
           <span className="logo-icon">🌈</span>
           <span className="logo-text">

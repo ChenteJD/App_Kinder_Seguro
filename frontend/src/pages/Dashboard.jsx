@@ -49,7 +49,31 @@ export default function Dashboard() {
     <div>
       <div className="page-header">
         <div className="page-title text-vibrant" style={{ fontSize: 48 }}>¡Hola, {user?.nombre?.split(' ')[0]}! 👋</div>
-        <div className="page-subtitle" style={{ fontWeight: 800, marginTop: -5 }}>PANEL DE CONTROL</div>
+        <div className="page-subtitle" style={{ fontWeight: 800, marginTop: -5 }}>PANEL DE CONTROL VIBRANTE</div>
+      </div>
+
+      {/* Quick Stats Panel */}
+      <div className="grid-4" style={{ marginBottom: 32 }}>
+        <div className="card floating border-red" style={{ padding: 24, textAlign: 'center' }}>
+          <div style={{ fontSize: 40 }}>👦</div>
+          <div className="stat-value" style={{ color: 'var(--pk-red)' }}>{data.alumnos.length}</div>
+          <div className="stat-label">ALUMNOS</div>
+        </div>
+        <div className="card floating border-yellow" style={{ padding: 24, textAlign: 'center', animationDelay: '0.2s' }}>
+          <div style={{ fontSize: 40 }}>📝</div>
+          <div className="stat-value" style={{ color: 'var(--pk-yellow)' }}>{reportes.length}</div>
+          <div className="stat-label">REPORTES HOY</div>
+        </div>
+        <div className="card floating border-green" style={{ padding: 24, textAlign: 'center', animationDelay: '0.4s' }}>
+          <div style={{ fontSize: 40 }}>👨‍🏫</div>
+          <div className="stat-value" style={{ color: 'var(--pk-green)' }}>{data.maestros.length}</div>
+          <div className="stat-label">MAESTROS</div>
+        </div>
+        <div className="card floating border-blue" style={{ padding: 24, textAlign: 'center', animationDelay: '0.6s' }}>
+          <div style={{ fontSize: 40 }}>🔒</div>
+          <div className="stat-value" style={{ color: 'var(--pk-blue)' }}>Activo</div>
+          <div className="stat-label">SEGURIDAD</div>
+        </div>
       </div>
 
       <div className="tabs" style={{ marginBottom: 24 }}>
@@ -71,32 +95,36 @@ export default function Dashboard() {
             <div className="empty-state-text">No hay {activeTab} registrados en tu jerarquía</div>
           </div>
         ) : (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-            {data[activeTab]?.map((item) => (
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 20 }}>
+            {data[activeTab]?.map((item, i) => (
               <div 
                 key={item.id} 
-                className="list-item" 
+                className="card list-item" 
                 onClick={() => activeTab === 'alumnos' ? navigate(`/alumno/${item.id}`) : null}
-                style={{ cursor: activeTab === 'alumnos' ? 'pointer' : 'default' }}
+                style={{ 
+                  cursor: activeTab === 'alumnos' ? 'pointer' : 'default',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 16,
+                  padding: 20,
+                  transitionDelay: `${i * 0.05}s`
+                }}
               >
-                <div className="avatar" style={{ background: item.avatar ? `url(${item.avatar}) center/cover` : 'var(--primary-light)' }}>
+                <div className="avatar avatar-lg" style={{ background: item.avatar ? `url(${item.avatar}) center/cover` : 'white', border: '5px solid var(--bg-app)' }}>
                   {!item.avatar && (activeTab === 'alumnos' ? '🧒' : item.nombre?.charAt(0))}
                 </div>
                 
                 <div className="list-item-content">
-                  <div className="list-item-title">{item.nombre} {item.apellido || ''}</div>
+                  <div className="list-item-title" style={{ fontSize: 18 }}>{item.nombre} {item.apellido || ''}</div>
                   <div className="list-item-sub">
                     {activeTab === 'alumnos' 
-                      ? `${item.grupo_nombre || 'Sin Grupo'} — Tutor ID: ${item.tutor_id.substring(0,4)}...`
-                      : `${item.email} • ${item.telefono || 'Sin 📞'}`}
+                      ? `${item.grupo_nombre || 'Sin Grupo'}`
+                      : `${item.email}`}
                   </div>
                 </div>
                 
                 {activeTab === 'alumnos' && (
-                  <>
-                    <div style={{ fontSize: 28 }}>{getEmoji(item.id)}</div>
-                    <div style={{ color: 'var(--text-muted)', fontSize: 18 }}>›</div>
-                  </>
+                  <div style={{ fontSize: 32, filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.1))' }}>{getEmoji(item.id)}</div>
                 )}
               </div>
             ))}

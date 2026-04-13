@@ -37,24 +37,50 @@ export default function AlumnoProfile() {
   ];
 
   return (
-    <div>
-      <button className="btn btn-ghost btn-sm" onClick={() => navigate('/')} style={{ marginBottom: 16 }}>
-        ← Volver
+    <div className="alumno-profile-page">
+      <button className="btn btn-ghost btn-sm" onClick={() => navigate('/')} style={{ marginBottom: 24, fontSize: 13, fontWeight: 700 }}>
+        ← REGRESAR AL PANEL
       </button>
 
-      <div className="card" style={{ textAlign: 'center', marginBottom: 24, background: 'linear-gradient(135deg, var(--primary-light), var(--bg))' }}>
-        <div className="avatar avatar-lg" style={{ margin: '0 auto 12px', background: 'white' }}>🧒</div>
-        <h2 style={{ fontSize: 24, fontWeight: 800 }}>{alumno.nombre} {alumno.apellido}</h2>
-        <div style={{ display: 'flex', gap: 8, justifyContent: 'center', marginTop: 8, flexWrap: 'wrap' }}>
-          <span className="badge badge-primary">{alumno.grupo_nombre}</span>
-          <span className="badge badge-secondary">{alumno.grupo_nivel}</span>
-          <span className="badge badge-blue">{edad} años</span>
+      <div className="card floating" style={{ 
+        textAlign: 'center', 
+        marginBottom: 32, 
+        padding: 40,
+        background: 'rgba(255, 255, 255, 0.4)',
+        border: 'none',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        {/* Abstract background highlight */}
+        <div style={{ position: 'absolute', top: -50, right: -50, width: 200, height: 200, background: 'var(--pk-yellow)', filter: 'blur(80px)', opacity: 0.1 }} />
+        
+        <div className="avatar avatar-lg" style={{ 
+          margin: '0 auto 20px', 
+          background: 'white', 
+          fontSize: 60,
+          width: 120,
+          height: 120,
+          border: '8px solid white',
+          boxShadow: '0 10px 30px rgba(0,0,0,0.05)'
+        }}>🧒</div>
+        
+        <h2 className="text-vibrant" style={{ fontSize: 40, letterSpacing: -1 }}>{alumno.nombre} {alumno.apellido}</h2>
+        
+        <div style={{ display: 'flex', gap: 12, justifyContent: 'center', marginTop: 16, flexWrap: 'wrap' }}>
+          <span className="badge border-green" style={{ background: 'rgba(138, 201, 38, 0.1)', color: 'var(--pk-green)', padding: '8px 20px' }}>{alumno.grupo_nombre}</span>
+          <span className="badge border-red" style={{ background: 'rgba(255, 89, 94, 0.1)', color: 'var(--pk-red)', padding: '8px 20px' }}>Nivel {alumno.grupo_nivel}</span>
+          <span className="badge border-blue" style={{ background: 'rgba(25, 130, 196, 0.1)', color: 'var(--pk-blue)', padding: '8px 20px' }}>{edad} años</span>
         </div>
       </div>
 
-      <div className="tabs">
+      <div className="tabs" style={{ marginBottom: 32, padding: 6, gap: 8 }}>
         {tabs.map(t => (
-          <button key={t.key} className={`tab ${tab === t.key ? 'active' : ''}`} onClick={() => setTab(t.key)}>
+          <button 
+            key={t.key} 
+            className={`tab ${tab === t.key ? 'active shadow-vibrant' : ''}`} 
+            onClick={() => setTab(t.key)}
+            style={{ fontSize: 14, padding: '12px 20px' }}
+          >
             {t.label}
           </button>
         ))}
