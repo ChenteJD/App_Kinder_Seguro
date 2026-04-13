@@ -34,7 +34,7 @@ export default function Login() {
         <div className="login-shape" style={{ width: 300, height: 300, background: 'var(--pk-blue)', top: '30%', left: '5%', animationDelay: '5s', filter: 'blur(40px)', opacity: 0.1 }} />
       </div>
 
-      <form className="card login-card" onSubmit={handleSubmit} style={{ border: '2px solid var(--glass-border)' }}>
+      <form className="card login-card" onSubmit={handleSubmit} style={{ border: 'none' }}>
         <div className="login-title" style={{ fontSize: 56, letter-spacing: -3, marginBottom: 0 }}>
             <span style={{ color: '#FF595E' }}>K</span><span style={{ color: '#FFCA3A' }}>i</span><span style={{ color: '#8AC926' }}>n</span><span style={{ color: '#1982C4' }}>d</span><span style={{ color: '#6A4C93' }}>d</span><span style={{ color: '#FF924C' }}>o</span>
         </div>

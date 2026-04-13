@@ -6,6 +6,7 @@ import AlumnoProfile from './pages/AlumnoProfile';
 import Profile from './pages/Profile';
 import Admin from './pages/Admin';
 import Layout from './components/Layout';
+import HubSplashScreen from './components/HubSplashScreen';
 import './index.css';
 
 function PrivateRoute({ children }) {
@@ -20,15 +21,18 @@ function PublicRoute({ children }) {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
-        <Route path="/" element={<PrivateRoute><Layout><Dashboard /></Layout></PrivateRoute>} />
-        <Route path="/alumno/:id" element={<PrivateRoute><Layout><AlumnoProfile /></Layout></PrivateRoute>} />
-        <Route path="/perfil" element={<PrivateRoute><Layout><Profile /></Layout></PrivateRoute>} />
-        <Route path="/admin" element={<PrivateRoute><Layout><Admin /></Layout></PrivateRoute>} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <HubSplashScreen />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+          <Route path="/" element={<PrivateRoute><Layout><Dashboard /></Layout></PrivateRoute>} />
+          <Route path="/alumno/:id" element={<PrivateRoute><Layout><AlumnoProfile /></Layout></PrivateRoute>} />
+          <Route path="/perfil" element={<PrivateRoute><Layout><Profile /></Layout></PrivateRoute>} />
+          <Route path="/admin" element={<PrivateRoute><Layout><Admin /></Layout></PrivateRoute>} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
