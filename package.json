@@ -1,7 +1,7 @@
 {
   "name": "kinddo",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "App Kinddo v1.0.0 - Monorepo Consolidado",
   "type": "module",
   "scripts": {

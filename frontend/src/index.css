@@ -1,3 +1,4 @@
+/* Build ID: 2026-04-13-HUB-SYNC-FIX */
 /* ============================================
    KINDDO — Design System: VIBRANT CRAYOLA
    Extremely Saturated · High-End Glass · Playful
@@ -23,8 +24,8 @@
   --bg: #FFFFFF;
   --bg-app: #F0F4F8;
   --bg-glass: rgba(255, 255, 255, 0.4);
-  --glass-blur: 25px;
-  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-blur: 40px;
+  --glass-border: rgba(255, 255, 255, 0.4);
   
   --text: #1A1A1A;
   --text-secondary: #4A4A4A;
@@ -47,9 +48,7 @@ body {
   background-color: var(--bg-app);
   background-image: 
     url('/scribbles.png'),
-    radial-gradient(at 10% 10%, rgba(255, 89, 94, 0.05) 0px, transparent 40%),
-    radial-gradient(at 90% 10%, rgba(25, 130, 196, 0.05) 0px, transparent 40%),
-    radial-gradient(at 50% 90%, rgba(138, 201, 38, 0.05) 0px, transparent 40%);
+    linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(240,244,248,0.7) 100%);
   background-attachment: fixed;
   background-size: 500px, cover;
   color: var(--text);
@@ -536,11 +535,64 @@ body {
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* === EMPTY STATE === */
-.empty-state {
-  text-align: center;
-  padding: 48px 24px;
-  color: var(--text-muted);
+/* === HUB SPLASH SCREEN === */
+.hub-splash {
+  position: fixed;
+  inset: 0;
+  background: white;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeOut 0.8s ease forwards 2.5s;
 }
-.empty-state-icon { font-size: 48px; margin-bottom: 12px; }
-.empty-state-text { font-size: 16px; font-weight: 500; }
+
+.splash-logo {
+  font-size: 80px;
+  font-weight: 900;
+  display: flex;
+  gap: 8px;
+}
+
+.splash-letter {
+  display: inline-block;
+  animation: bounceLetter 0.5s ease infinite alternate;
+}
+
+@keyframes bounceLetter {
+  from { transform: translateY(0); }
+  to { transform: translateY(-30px); }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* === VIBRANT UTILS === */
+.border-red { border: 2px solid var(--pk-red) !important; }
+.border-yellow { border: 2px solid var(--pk-yellow) !important; }
+.border-green { border: 2px solid var(--pk-green) !important; }
+.border-blue { border: 2px solid var(--pk-blue) !important; }
+
+.floating {
+  animation: hubFloat 6s ease-in-out infinite;
+}
+
+@keyframes hubFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.sidebar.glass {
+  background: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(50px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(50px) saturate(200%) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.sidebar-link.active {
+  background: white !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
+  transform: scale(1.05);
+}
