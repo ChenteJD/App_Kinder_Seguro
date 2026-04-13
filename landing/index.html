@@ -27,9 +27,9 @@
             <span style="color: #FF595E;">K</span><span style="color: #FFCA3A;">i</span><span style="color: #8AC926;">n</span><span style="color: #1982C4;">d</span><span style="color: #6A4C93;">d</span><span style="color: #FF924C;">o</span>
         </a>
         <div class="nav-links">
-            <a href="#features">Tecnología</a>
-            <a href="#download">Instalar</a>
-            <a href="#support">Hub Soporte</a>
+            <a href="#features">Propuesta</a>
+            <a href="#download">Descargar</a>
+            <a href="#support">Soporte</a>
         </div>
     </nav>
 
@@ -40,8 +40,8 @@
             <h1>EL FUTURO ES<br><span style="background: linear-gradient(to right, #FFCA3A, #FF924C); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">BRILLANTE</span></h1>
             <p class="hero-subtitle">Experimenta la gestión escolar más vibrante del mundo. Kinddo transforma el kinder en un ecosistema lleno de color, seguridad y conexión.</p>
             <div class="hero-cta">
-                <a href="#download" class="btn btn-primary">Empieza el Color</a>
-                <a href="#features" class="btn btn-white">Concepto Glass</a>
+                <a href="#download" class="btn btn-primary">Descargar App</a>
+                <a href="#features" class="btn btn-white">Conceptos</a>
             </div>
         </div>
     </section>
@@ -103,10 +103,37 @@
         </div>
     </section>
 
+    <!-- SUPPORT -->
+    <section class="features" id="support" style="background: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Soporte</h2>
+                <p>¿Necesitas ayuda? Envíanos un mensaje directo.</p>
+            </div>
+            
+            <div class="card" style="max-width: 600px; margin: 0 auto; background: white;">
+                <form id="supportForm" onsubmit="handleSupport(event)">
+                    <div style="margin-bottom: 20px;">
+                        <input type="text" id="nombre" placeholder="Tu Nombre" required style="width: 100%; padding: 15px; border-radius: 15px; border: 1px solid #eee;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <input type="email" id="email" placeholder="Tu Correo" required style="width: 100%; padding: 15px; border-radius: 15px; border: 1px solid #eee;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <textarea id="mensaje" placeholder="¿En qué te ayudamos?" required style="width: 100%; padding: 15px; border-radius: 15px; border: 1px solid #eee; min-height: 120px;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Enviar Mensaje</button>
+                    <div id="formResult" style="margin-top: 20px; text-align: center;"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer style="padding: 100px 0; background: #0B2117; color: white; text-align: center;">
         <div class="container">
-            <p style="opacity: 0.5; font-weight: 700; letter-spacing: 2px;">KINDDO &copy; 2026 / DISEÑADO PARA WOW</p>
+            <p style="margin-bottom: 15px;">chentejcruz@outlook.com</p>
+            <p style="opacity: 0.6; font-size: 14px;">© 2026 Reservados todos los derechos por Vicente Jared Cruz Ortega</p>
         </div>
     </footer>
 
