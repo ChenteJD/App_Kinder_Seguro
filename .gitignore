@@ -1,4 +1,4 @@
-﻿# Node
+# Node
 node_modules/
 npm-debug.log*
 
@@ -11,8 +11,8 @@ npm-debug.log*
 *.sqlite3
 *.db
 
-# Build
-dist/
+# Build (only ignore specific build artifacts, not dist)
+# dist/
 build/
 .expo/
 

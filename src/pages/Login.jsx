@@ -35,7 +35,7 @@ export default function Login() {
       </div>
 
       <form className="card login-card" onSubmit={handleSubmit} style={{ border: 'none' }}>
-        <div className="login-title" style={{ fontSize: 56, letter-spacing: -3, marginBottom: 0 }}>
+        <div className="login-title" style={{ fontSize: 56, letterSpacing: -3, marginBottom: 0 }}>
             <span style={{ color: '#FF595E' }}>K</span><span style={{ color: '#FFCA3A' }}>i</span><span style={{ color: '#8AC926' }}>n</span><span style={{ color: '#1982C4' }}>d</span><span style={{ color: '#6A4C93' }}>d</span><span style={{ color: '#FF924C' }}>o</span>
         </div>
         <div className="login-subtitle" style={{ fontWeight: 800, color: 'var(--text-secondary)', marginTop: -10, marginBottom: 30 }}>ESCOLAR</div>
