@@ -96,6 +96,23 @@ body {
   transition: var(--transition);
 }
 
+.navbar.white {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-color: rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.navbar.white .nav-links a {
+  color: #333;
+  opacity: 0.8;
+}
+
+.navbar.white .nav-links a:hover {
+  opacity: 1;
+  color: var(--pk-blue);
+}
+
 .navbar.scrolled {
   background: var(--glass-intense);
   backdrop-filter: blur(30px) saturate(200%);
@@ -241,6 +258,19 @@ body {
   background: var(--bg-dark);
   color: white;
   border-radius: 100px 100px 0 0;
+}
+
+.download-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+
+@media (max-width: 1000px) {
+  .download-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .download-card {
