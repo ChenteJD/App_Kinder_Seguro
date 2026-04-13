@@ -46,9 +46,12 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--bg-app);
   background-image: 
-    radial-gradient(at 10% 10%, rgba(255, 89, 94, 0.1) 0px, transparent 40%),
-    radial-gradient(at 90% 10%, rgba(25, 130, 196, 0.1) 0px, transparent 40%),
-    radial-gradient(at 50% 90%, rgba(138, 201, 38, 0.1) 0px, transparent 40%);
+    url('/scribbles.png'),
+    radial-gradient(at 10% 10%, rgba(255, 89, 94, 0.05) 0px, transparent 40%),
+    radial-gradient(at 90% 10%, rgba(25, 130, 196, 0.05) 0px, transparent 40%),
+    radial-gradient(at 50% 90%, rgba(138, 201, 38, 0.05) 0px, transparent 40%);
+  background-attachment: fixed;
+  background-size: 500px, cover;
   color: var(--text);
   min-height: 100vh;
 }
@@ -68,21 +71,27 @@ body {
 .gap-12 { gap: 12px; }
 .gap-16 { gap: 16px; }
 
+.text-vibrant {
+  background: linear-gradient(to right, var(--pk-red), var(--pk-yellow), var(--pk-green), var(--pk-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
+
 /* === FLOATING CARD (Vibrant Glassmorphism) === */
 .card, .stat-card, .list-item, .modal {
   background: var(--bg-glass);
   backdrop-filter: blur(var(--glass-blur)) saturate(200%);
   -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(200%);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius);
+  border: none;
+  border-radius: var(--radius) !important;
   padding: 32px;
-  box-shadow: var(--shadow-vibrant) rgba(0, 0, 0, 0.05);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
   transition: var(--transition);
 }
 .card:hover { 
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: var(--shadow-vibrant) rgba(138, 201, 38, 0.2); 
-  border-color: var(--pk-green);
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 30px 80px rgba(138, 201, 38, 0.15); 
 }
 .card-sm { padding: 20px; border-radius: var(--radius-sm); }
 
@@ -109,24 +118,26 @@ body {
 .btn-primary { 
   background: linear-gradient(135deg, var(--pk-green), var(--primary-dark)); 
   color: white; 
-  box-shadow: 0 8px 20px rgba(138, 201, 38, 0.3);
+  box-shadow: 0 8px 25px rgba(138, 201, 38, 0.25);
+  border: none !important;
 }
 .btn-primary:hover { 
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 12px 30px rgba(138, 201, 38, 0.4);
+  box-shadow: 0 12px 35px rgba(138, 201, 38, 0.35);
 }
 .btn-secondary { 
   background: linear-gradient(135deg, var(--pk-yellow), var(--pk-orange)); 
   color: white; 
+  border: none !important;
 }
 .btn-secondary:hover { transform: translateY(-3px) scale(1.05); }
-.btn-danger { background: var(--pk-red); color: white; }
+.btn-danger { background: var(--pk-red); color: white; border: none !important; }
 .btn-danger:hover { background: #D46B6B; }
-.btn-ghost { background: transparent; color: var(--text-secondary); border: 1px solid var(--border); }
-.btn-ghost:hover { border-color: var(--primary); color: var(--text); }
+.btn-ghost { background: transparent; color: var(--text-secondary); border: none !important; }
+.btn-ghost:hover { color: var(--primary); }
 .btn-sm { padding: 8px 16px; font-size: 13px; }
 .btn-block { width: 100%; }
-.btn-icon { width: 40px; height: 40px; padding: 0; border-radius: 50%; }
+.btn-icon { width: 40px; height: 40px; padding: 0; border-radius: 50%; border: none !important; }
 
 /* === INPUTS === */
 .form-group { margin-bottom: 16px; }

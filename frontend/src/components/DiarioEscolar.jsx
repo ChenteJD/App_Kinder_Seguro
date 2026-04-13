@@ -93,7 +93,7 @@ export default function DiarioEscolar({ alumnoId, userRol }) {
             </div>
 
             <div className="form-group">
-              <label className="form-label">🤝 Vínculo social</label>
+              <label className="form-label">🤝 Conexión social</label>
               <input className="form-input" placeholder="Ej: Jugó con Lucas y Emma" value={form.vinculo_social} onChange={e => setForm({ ...form, vinculo_social: e.target.value })} />
             </div>
 

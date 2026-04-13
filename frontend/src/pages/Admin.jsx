@@ -13,7 +13,7 @@ export default function Admin() {
   return (
     <div>
       <div className="page-header">
-        <h1 className="page-title">Administración del Kinder</h1>
+        <h1 className="page-title text-vibrant" style={{ fontSize: 40 }}>Administración de Kinddo</h1>
         <p className="page-subtitle">Gestiona al personal y los alumnos</p>
       </div>
 

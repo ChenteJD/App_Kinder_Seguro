@@ -33,8 +33,10 @@ export default function Layout({ children }) {
       {/* Sidebar */}
       <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="sidebar-logo">
-          <span className="logo-icon">🍃</span>
-          <span className="logo-text">Kinddo<span className="logo-accent">.</span></span>
+          <span className="logo-icon">🌈</span>
+          <span className="logo-text">
+            <span>K</span><span>i</span><span>n</span><span>d</span><span>d</span><span>o</span>
+          </span>
         </div>
 
         <nav className="sidebar-menu">

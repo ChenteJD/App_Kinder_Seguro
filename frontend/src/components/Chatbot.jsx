@@ -30,7 +30,7 @@ export default function Chatbot() {
           display: 'flex', flexDirection: 'column', overflow: 'hidden', zIndex: 1000, border: '1px solid var(--border)'
         }}>
           <div style={{ background: 'var(--primary)', color: 'var(--text)', padding: '16px', fontWeight: 'bold', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span>🤖 Soporte Vínculo</span>
+            <span>🤖 Soporte Kinddo</span>
             <button onClick={() => setOpen(false)} style={{ background: 'none', border: 'none', fontWeight: 'bold', cursor: 'pointer', fontSize: 18 }}>×</button>
           </div>
           <div style={{ flex: 1, padding: 16, overflowY: 'auto', background: 'var(--bg)', display: 'flex', flexDirection: 'column', gap: 12 }}>

@@ -48,8 +48,8 @@ export default function Dashboard() {
   return (
     <div>
       <div className="page-header">
-        <div className="page-title">¡Hola, {user?.nombre?.split(' ')[0]}! 👋</div>
-        <div className="page-subtitle">Panel Jerárquico ({user?.rol})</div>
+        <div className="page-title text-vibrant" style={{ fontSize: 48 }}>¡Hola, {user?.nombre?.split(' ')[0]}! 👋</div>
+        <div className="page-subtitle" style={{ fontWeight: 800, marginTop: -5 }}>PANEL DE CONTROL</div>
       </div>
 
       <div className="tabs" style={{ marginBottom: 24 }}>
