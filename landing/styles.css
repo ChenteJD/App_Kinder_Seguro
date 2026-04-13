@@ -36,6 +36,10 @@ html { scroll-behavior: smooth; }
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #F8FAFC;
+  background-image: url('scribbles.png');
+  background-repeat: repeat;
+  background-size: 500px;
+  background-attachment: fixed;
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
@@ -87,7 +91,7 @@ body {
   max-width: 1000px;
   z-index: 1000;
   background: transparent;
-  border: 1px solid rgba(255,255,255,0.05);
+  border: none;
   border-radius: 100px;
   padding: 8px 24px;
   display: flex;
@@ -117,7 +121,7 @@ body {
   background: var(--glass-intense);
   backdrop-filter: blur(30px) saturate(200%);
   -webkit-backdrop-filter: blur(30px) saturate(200%);
-  border-color: rgba(255,255,255,0.6);
+  border: none;
   box-shadow: 0 15px 40px rgba(0,0,0,0.08);
 }
 
@@ -219,9 +223,9 @@ body {
 .feature-card {
   padding: 60px 40px;
   background: white;
-  border-radius: var(--radius);
+  border-radius: var(--radius) !important;
   box-shadow: 0 10px 40px rgba(0,0,0,0.04);
-  border: 1px solid rgba(0,0,0,0.03);
+  border: none;
   transition: var(--transition);
   cursor: pointer;
   position: relative;
@@ -274,11 +278,11 @@ body {
 }
 
 .download-card {
-  padding: 80px 40px;
+  padding: 40px 24px;
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: var(--radius);
+  border: none;
+  border-radius: var(--radius) !important;
   text-align: center;
   transition: var(--transition);
 }
@@ -302,6 +306,7 @@ body {
   align-items: center;
   gap: 15px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  border: none !important;
 }
 
 .btn-primary { background: linear-gradient(to right, var(--pk-yellow), var(--pk-orange)); color: white; }
