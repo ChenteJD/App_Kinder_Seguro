@@ -1,4 +1,4 @@
-# Propuesta del Sistema Integral para Kinder Leizza - Xicotepec de Juárez, Puebla
+# Kinddo — Sistema Integral para Kinder Leizza
 
 ## 📌 Contexto Local y Perfil Socioeconómico
 

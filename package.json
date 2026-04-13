@@ -1,5 +1,5 @@
 {
-  "name": "vinculo-preescolar-monorepo",
+  "name": "kinddo-monorepo",
   "private": true,
   "scripts": {
     "backend": "cd backend && npm run dev",

@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: app-kinder-seguro
+    name: kinddo-api
     runtime: node
     plan: free
     rootDir: backend
@@ -10,7 +10,7 @@ services:
       - key: PORT
         value: 3001
       - key: JWT_SECRET
-        value: vinculo_preescolar_secret_key_2024_muy_segura
+        value: kinddo_secret_key_2024_muy_segura
       - key: JWT_EXPIRES_IN
         value: 24h
       - key: DB_PATH

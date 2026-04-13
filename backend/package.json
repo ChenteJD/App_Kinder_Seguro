@@ -1,7 +1,7 @@
 {
-  "name": "kinder-seguro-backend",
+  "name": "kinddo-api",
   "version": "1.0.0",
-  "description": "API para Kinder Seguro v1.0.0",
+  "description": "Backend API para App Kinddo v1.0.0 - Kinddo Leizza",
   "type": "commonjs",
   "main": "src/app.js",
   "scripts": {

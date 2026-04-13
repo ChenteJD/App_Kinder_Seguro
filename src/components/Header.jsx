@@ -1,7 +1,7 @@
 export default function Header({ toggleSidebar }) {
   return (
     <header className="bg-white-200 text-green-600 p-4 flex justify-between items-center shadow-md">
-      <h1 className="text-2xl font-bold tracking-wide">Kinder Leizza</h1>
+      <h1 className="text-2xl font-bold tracking-wide">Kinddo</h1>
 
       {/* Navegación desktop */}
       <nav className="space-x-6 hidden md:flex">

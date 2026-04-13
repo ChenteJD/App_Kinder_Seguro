@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "mobile",
-    "slug": "vinculo-preescolar",
+    "name": "Kinddo",
+    "slug": "kinddo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -29,7 +29,7 @@
     "plugins": [
       "expo-router"
     ],
-    "scheme": "vinculopreescolar",
+    "scheme": "kinddo",
     "owner": "chentestudiojd"
   }
 }

@@ -1,16 +1,16 @@
 import { create } from 'zustand';
 
 export const useAuthStore = create((set) => ({
-  token: sessionStorage.getItem('vinculo_token') || null,
-  user: JSON.parse(sessionStorage.getItem('vinculo_user') || 'null'),
+  token: sessionStorage.getItem('kinddo_token') || null,
+  user: JSON.parse(sessionStorage.getItem('kinddo_user') || 'null'),
   setAuth: (token, user) => {
-    sessionStorage.setItem('vinculo_token', token);
-    sessionStorage.setItem('vinculo_user', JSON.stringify(user));
+    sessionStorage.setItem('kinddo_token', token);
+    sessionStorage.setItem('kinddo_user', JSON.stringify(user));
     set({ token, user });
   },
   logout: () => {
-    sessionStorage.removeItem('vinculo_token');
-    sessionStorage.removeItem('vinculo_user');
+    sessionStorage.removeItem('kinddo_token');
+    sessionStorage.removeItem('kinddo_user');
     set({ token: null, user: null });
   },
 }));

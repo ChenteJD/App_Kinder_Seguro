@@ -1,48 +1,55 @@
 /* ============================================
-   VÍNCULO PREESCOLAR — Design System
-   Paleta Pastel · Poppins · Islas Flotantes
+   KINDDO — Design System: VIBRANT CRAYOLA
+   Extremely Saturated · High-End Glass · Playful
    ============================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --primary: #A8D5BA;
-  --primary-dark: #7EC09D;
-  --primary-light: #D4F4DD;
-  --secondary: #F5C6A5;
-  --secondary-dark: #E8A87C;
-  --accent-blue: #B8D4E3;
-  --accent-purple: #D4C5F0;
-  --accent-pink: #F2C6DE;
-  --accent-yellow: #F5E6A3;
-  --bg: #F5F7FA;
-  --bg-card: #FFFFFF;
-  --text: #2D2D2D;
-  --text-secondary: #6B7280;
-  --text-muted: #9CA3AF;
-  --border: #E8ECF0;
-  --danger: #E88B8B;
-  --danger-dark: #D46B6B;
-  --warning: #F0C674;
-  --success: #A8D5BA;
-  --radius: 20px;
-  --radius-sm: 12px;
-  --radius-xs: 8px;
-  --shadow: 0 2px 16px rgba(0,0,0,0.04);
-  --shadow-md: 0 4px 24px rgba(0,0,0,0.06);
-  --shadow-lg: 0 8px 40px rgba(0,0,0,0.08);
-  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Crayola Saturated Palette */
+  --pk-red: #FF595E;
+  --pk-yellow: #FFCA3A;
+  --pk-green: #8AC926;
+  --pk-blue: #1982C4;
+  --pk-purple: #6A4C93;
+  --pk-orange: #FF924C;
+
+  --primary: var(--pk-green);
+  --primary-dark: #6BA31A;
+  --secondary: var(--pk-yellow);
+  --accent: var(--pk-blue);
+  
+  /* Glassmorphism Plus */
+  --bg: #FFFFFF;
+  --bg-app: #F0F4F8;
+  --bg-glass: rgba(255, 255, 255, 0.4);
+  --glass-blur: 25px;
+  --glass-border: rgba(255, 255, 255, 0.6);
+  
+  --text: #1A1A1A;
+  --text-secondary: #4A4A4A;
+  --text-white: #FFFFFF;
+  
+  --radius: 28px;
+  --radius-sm: 16px;
+  
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --shadow-vibrant: 0 10px 40px -10px; /* To be combined with colors */
+  
+  --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(135deg, #F0F7F4 0%, #FDF6E3 50%, #F5E6FF 100%);
-  background-attachment: fixed;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-app);
+  background-image: 
+    radial-gradient(at 10% 10%, rgba(255, 89, 94, 0.1) 0px, transparent 40%),
+    radial-gradient(at 90% 10%, rgba(25, 130, 196, 0.1) 0px, transparent 40%),
+    radial-gradient(at 50% 90%, rgba(138, 201, 38, 0.1) 0px, transparent 40%);
   color: var(--text);
-  line-height: 1.6;
   min-height: 100vh;
 }
 
@@ -61,19 +68,23 @@ body {
 .gap-12 { gap: 12px; }
 .gap-16 { gap: 16px; }
 
-/* === FLOATING CARD (Isla Flotante Acrílica) === */
+/* === FLOATING CARD (Vibrant Glassmorphism) === */
 .card, .stat-card, .list-item, .modal {
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: var(--bg-glass);
+  backdrop-filter: blur(var(--glass-blur)) saturate(200%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(200%);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius);
-  padding: 24px;
-  box-shadow: 0 8px 32px 0 rgba(168, 213, 186, 0.15);
+  padding: 32px;
+  box-shadow: var(--shadow-vibrant) rgba(0, 0, 0, 0.05);
   transition: var(--transition);
 }
-.card:hover { box-shadow: 0 12px 40px 0 rgba(168, 213, 186, 0.25); }
-.card-sm { padding: 16px; border-radius: var(--radius-sm); }
+.card:hover { 
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-vibrant) rgba(138, 201, 38, 0.2); 
+  border-color: var(--pk-green);
+}
+.card-sm { padding: 20px; border-radius: var(--radius-sm); }
 
 /* === BUTTONS === */
 .btn {
@@ -95,12 +106,22 @@ body {
 .btn:active { transform: translateY(0); }
 .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
-.btn-primary { background: var(--primary); color: var(--text); }
-.btn-primary:hover { background: var(--primary-dark); }
-.btn-secondary { background: var(--secondary); color: var(--text); }
-.btn-secondary:hover { background: var(--secondary-dark); }
-.btn-danger { background: var(--danger); color: white; }
-.btn-danger:hover { background: var(--danger-dark); }
+.btn-primary { 
+  background: linear-gradient(135deg, var(--pk-green), var(--primary-dark)); 
+  color: white; 
+  box-shadow: 0 8px 20px rgba(138, 201, 38, 0.3);
+}
+.btn-primary:hover { 
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(138, 201, 38, 0.4);
+}
+.btn-secondary { 
+  background: linear-gradient(135deg, var(--pk-yellow), var(--pk-orange)); 
+  color: white; 
+}
+.btn-secondary:hover { transform: translateY(-3px) scale(1.05); }
+.btn-danger { background: var(--pk-red); color: white; }
+.btn-danger:hover { background: #D46B6B; }
 .btn-ghost { background: transparent; color: var(--text-secondary); border: 1px solid var(--border); }
 .btn-ghost:hover { border-color: var(--primary); color: var(--text); }
 .btn-sm { padding: 8px 16px; font-size: 13px; }
@@ -210,13 +231,24 @@ body {
 .sidebar-logo {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
-  margin-bottom: 32px;
+  gap: 12px;
+  padding: 12px;
+  margin-bottom: 40px;
 }
-.sidebar-logo .logo-icon { font-size: 28px; }
-.sidebar-logo .logo-text { font-size: 18px; font-weight: 800; }
-.sidebar-logo .logo-accent { color: var(--primary-dark); }
+.sidebar-logo .logo-icon { 
+  font-size: 32px; 
+  text-shadow: 0 0 20px rgba(138, 201, 38, 0.5); 
+}
+.sidebar-logo .logo-text { 
+  font-family: 'Poppins', sans-serif; 
+  font-size: 26px; 
+  font-weight: 900; 
+  background: linear-gradient(to right, var(--pk-red), var(--pk-yellow), var(--pk-green), var(--pk-blue), var(--pk-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+}
+.sidebar-logo .logo-accent { color: var(--secondary); }
 
 .sidebar-menu { flex: 1; display: flex; flex-direction: column; gap: 4px; }
 
@@ -268,14 +300,17 @@ body {
   margin-bottom: 24px;
 }
 .page-title {
-  font-size: 28px;
-  font-weight: 800;
-  color: var(--text);
+  font-family: 'Poppins', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--primary);
+  letter-spacing: -1px;
 }
 .page-subtitle {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-secondary);
-  margin-top: 4px;
+  margin-top: 6px;
+  font-weight: 500;
 }
 
 /* === GRID === */

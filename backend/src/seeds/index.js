@@ -1,4 +1,4 @@
-﻿require("dotenv").config();
+require("dotenv").config();
 const bcrypt = require("bcryptjs");
 const { v4: uuidv4 } = require("uuid");
 const { connectDB, run, get, query, saveDB } = require("../config/database");
@@ -12,13 +12,13 @@ const seed = async () => {
   // Admin
   const adminId = uuidv4();
   const adminHash = await bcrypt.hash("admin123", 12);
-  await ins("INSERT INTO usuarios (id,nombre,email,password_hash,rol,telefono) VALUES (?,?,?,?,?,?)", [adminId,"Directora Lopez","admin@kinder.com",adminHash,"admin","555-0001"]);
+  await ins("INSERT INTO usuarios (id,nombre,email,password_hash,rol,telefono) VALUES (?,?,?,?,?,?)", [adminId,"Directora Lopez","admin@kinddo.com",adminHash,"admin","555-0001"]);
 
   // Maestras
   const hash = await bcrypt.hash("maestro123", 12);
   const m1Id = uuidv4(); const m2Id = uuidv4();
-  await ins("INSERT INTO usuarios (id,nombre,email,password_hash,rol,descripcion,telefono) VALUES (?,?,?,?,?,?,?)",[m1Id,"Maestra Salma Rios","salma@kinder.com",hash,"maestro","Especialista en educacion temprana con 8 anos de experiencia","555-0002"]);
-  await ins("INSERT INTO usuarios (id,nombre,email,password_hash,rol,descripcion,telefono) VALUES (?,?,?,?,?,?,?)",[m2Id,"Maestra Berta Campos","berta@kinder.com",hash,"maestro","Apasionada del arte y la creatividad infantil","555-0003"]);
+  await ins("INSERT INTO usuarios (id,nombre,email,password_hash,rol,descripcion,telefono) VALUES (?,?,?,?,?,?,?)",[m1Id,"Maestra Salma Rios","salma@kinddo.com",hash,"maestro","Especialista en educacion temprana con 8 anos de experiencia","555-0002"]);
+  await ins("INSERT INTO usuarios (id,nombre,email,password_hash,rol,descripcion,telefono) VALUES (?,?,?,?,?,?,?)",[m2Id,"Maestra Berta Campos","berta@kinddo.com",hash,"maestro","Apasionada del arte y la creatividad infantil","555-0003"]);
 
   // Grupos
   const g1Id = uuidv4(); const g2Id = uuidv4(); const g3Id = uuidv4();
@@ -92,8 +92,8 @@ const seed = async () => {
 
   saveDB();
   console.log("Seeds completados!");
-  console.log("  Admin: admin@kinder.com / admin123");
-  console.log("  Maestras: salma@kinder.com / maestro123, berta@kinder.com / maestro123");
+  console.log("  Admin: admin@kinddo.com / admin123");
+  console.log("  Maestras: salma@kinddo.com / maestro123, berta@kinddo.com / maestro123");
   console.log("  Tutores: carlos.m@gmail.com / tutor123 (y mas)");
   console.log("  20 alumnos con familias de hermanos");
   process.exit(0);

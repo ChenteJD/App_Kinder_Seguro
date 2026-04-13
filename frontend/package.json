@@ -1,8 +1,8 @@
 {
-  "name": "kinder-seguro",
+  "name": "kinddo",
   "private": true,
   "version": "1.0.0",
-  "description": "Backend API para App Kinder Seguro v1.0.0 - Kinder Leizza",
+  "description": "App Kinddo v1.0.0 - Kinder Leizza",
   "main": "electron-main.cjs",
   "type": "module",
   "scripts": {
@@ -14,8 +14,8 @@
     "electron:build": "npm run build && electron-builder --win"
   },
   "build": {
-    "appId": "com.kinder.seguro",
-    "productName": "Kinder Seguro v1.0.0",
+    "appId": "com.kinddo",
+    "productName": "Kinddo",
     "directories": {
       "output": "release"
     },
