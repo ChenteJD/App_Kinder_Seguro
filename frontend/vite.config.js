@@ -10,11 +10,11 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'icons.svg'],
       manifest: {
-        name: 'Vínculo Preescolar',
-        short_name: 'Vínculo',
-        description: 'App de gestión escolar inteligente',
-        theme_color: '#A8D5BA',
-        background_color: '#F9FAFB',
+        name: 'Kinddo Escolar',
+        short_name: 'Kinddo',
+        description: 'La gestión escolar más vibrante y segura',
+        theme_color: '#8AC926',
+        background_color: '#F8FAFC',
         display: 'standalone',
         icons: [
           {

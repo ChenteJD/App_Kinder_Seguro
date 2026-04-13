@@ -1,22 +1,34 @@
-import { useState } from "react";
-import Header from "./components/Header";
-import Sidebar from "./components/Sidebar";
-import MainContent from "./components/MainContent";
-import Footer from "./components/Footer";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useAuthStore } from './store';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import AlumnoProfile from './pages/AlumnoProfile';
+import Profile from './pages/Profile';
+import Admin from './pages/Admin';
+import Layout from './components/Layout';
+import './index.css';
 
-function App() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
-      <Header toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
-      <div className="flex flex-1">
-        <Sidebar isOpen={sidebarOpen} />
-        <MainContent />
-      </div>
-      <Footer />
-    </div>
-  );
+function PrivateRoute({ children }) {
+  const { token } = useAuthStore();
+  return token ? children : <Navigate to="/login" replace />;
 }
 
-export default App;
+function PublicRoute({ children }) {
+  const { token } = useAuthStore();
+  return token ? <Navigate to="/" replace /> : children;
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+        <Route path="/" element={<PrivateRoute><Layout><Dashboard /></Layout></PrivateRoute>} />
+        <Route path="/alumno/:id" element={<PrivateRoute><Layout><AlumnoProfile /></Layout></PrivateRoute>} />
+        <Route path="/perfil" element={<PrivateRoute><Layout><Profile /></Layout></PrivateRoute>} />
+        <Route path="/admin" element={<PrivateRoute><Layout><Admin /></Layout></PrivateRoute>} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
