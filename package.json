@@ -1,12 +1,12 @@
 {
   "name": "kinddo",
   "private": true,
-  "version": "1.0.1",
-  "description": "App Kinddo v1.0.0 - Monorepo Consolidado",
+  "version": "1.0.2",
+  "description": "App Kinddo v1.0.2 - Monorepo Consolidado",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "rm -rf dist && vite build",
     "preview": "vite preview",
     "backend": "cd backend && npm run dev",
     "seed": "cd backend && npm run seed"
